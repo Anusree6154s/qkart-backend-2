@@ -60,7 +60,7 @@ userSchema.methods.isPasswordMatch = async function (password) {
  */
 userSchema.methods.hasSetNonDefaultAddress = async function () {
   const user = this;
-   return user.address === config.default_address;
+   return user.address !== config.default_address;
 };
 
 /*
