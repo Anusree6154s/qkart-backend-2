@@ -6,17 +6,26 @@ const config = require("../config/config");
 // TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Complete userSchema, a Mongoose schema for "users" collection
 const userSchema = mongoose.Schema(
   {
-    name: {
+    name: { type: String, required: true, trim: true },
+    email: {
       type: String,
       required: true,
       trim: true,
-    },
-    email: {
+      unique: true,
+      lowercase: true,
+      validate: {
+        validator: (value) => validator.isEmail(value),
+        message: "Invalid email format",
+      },
     },
     password: {
       type: String,
+      required: true,
+      trim: true,
+      minLength: 8,
       validate(value) {
         if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
+          //for 1 diit and 1 alphabet validation
           throw new Error(
             "Password must contain at least one letter and one number"
           );
@@ -24,16 +33,14 @@ const userSchema = mongoose.Schema(
       },
     },
     walletMoney: {
+      type: Number,
+      required: true,
+      default: config.default_wallet_money,
     },
-    address: {
-      type: String,
-      default: config.default_address,
-    },
+    address: { type: String, default: config.default_address },
   },
   // Create createdAt and updatedAt fields automatically
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
 // TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Implement the isEmailTaken() static method
@@ -43,9 +50,13 @@ const userSchema = mongoose.Schema(
  * @returns {Promise<boolean>}
  */
 userSchema.statics.isEmailTaken = async function (email) {
+  try {
+    let user = await this.findOne({ email });
+    return !!user; //double egation to convert object data to boolean
+  } catch (error) {
+    console.log(error);
+  }
 };
-
-
 
 // TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS
 /*
@@ -56,3 +67,5 @@ userSchema.statics.isEmailTaken = async function (email) {
 /**
  * @typedef User
  */
+
+module.exports = mongoose.model("User", userSchema);

@@ -6,6 +6,6 @@ const userController = require("../../controllers/user.controller");
 const router = express.Router();
 
 // TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Implement a route definition for `/v1/users/:userId`
-
+router.use('/:userId', userController.getUser)
 
 module.exports = router;
