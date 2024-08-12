@@ -3,7 +3,6 @@ const httpStatus = require("http-status");
 const ApiError = require("../utils/ApiError");
 const bcrypt = require("bcryptjs");
 
-// TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Implement getUserById(id)
 /**
  * Get User by id
  * - Fetch user object from Mongo using the "_id" field and return user object
@@ -19,7 +18,6 @@ const getUserById = async (id) => {
   }
 };
 
-// TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Implement getUserByEmail(email)
 /**
  * Get user by email
  * - Fetch user object from Mongo using the "email" field and return user object
@@ -29,14 +27,12 @@ const getUserById = async (id) => {
 const getUserByEmail = async (email) => {
   try {
     let docs = await User.findOne({ email });
-    console.log(docs)
     return docs;
   } catch (error) {
     return error;
   }
 };
 
-// TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Implement createUser(user)
 /**
  * Create a user
  *  - check if the user with the email already exists using `User.isEmailTaken()` method
@@ -60,13 +56,15 @@ const getUserByEmail = async (email) => {
  */
 const createUser = async (body) => {
   //check for existing user
-  if (await User.isEmailTaken(body.email)) {
+  let user = await User.isEmailTaken(body.email);
+  if (user) {
     throw new ApiError(httpStatus.OK, "Email already taken");
   }
 
+  let password = await bcrypt.hash(body.password, 8);
   //create a new user
   try {
-    let docs = await User.create(body);
+    let docs = await User.create({ ...body, password });
     return docs;
   } catch (error) {
     throw new Error(`Error retrieving user: ${error.message}`);
