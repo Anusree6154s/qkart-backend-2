@@ -16,7 +16,6 @@ const errorHandler = (err, req, res, next) => {
         ...(config.env === "development" && { stack: err.stack }),
     };
 
-    console.log('config.env:', config.env)
     if (config.env === "development") {
         console.error(err);
     }
