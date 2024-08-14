@@ -4,7 +4,6 @@ const validator = require("validator");
 const config = require("../config/config");
 const bcrypt = require("bcryptjs");
 
-// TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Complete userSchema, a Mongoose schema for "users" collection
 const userSchema = mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
@@ -51,7 +50,6 @@ const userSchema = mongoose.Schema(
 //   next();
 // });
 
-// TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Implement the isEmailTaken() static method
 /**
  * Check if email is taken
  * @param {string} email - The user's email
@@ -73,6 +71,19 @@ userSchema.statics.isEmailTaken = async function (email) {
  */
 userSchema.methods.isPasswordMatch = async function (password) {
   return await bcrypt.compare(password, this.password);
+};
+
+
+/**
+ * Check if user have set an address other than the default address
+ * - should return true if user has set an address other than default address
+ * - should return false if user's address is the default address
+ *
+ * @returns {Promise<boolean>}
+ */
+userSchema.methods.hasSetNonDefaultAddress = async function () {
+  const user = this;
+   return user.address !== config.default_address;
 };
 
 /*

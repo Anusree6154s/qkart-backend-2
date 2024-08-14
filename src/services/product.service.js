@@ -6,8 +6,7 @@ const { Product } = require("../models");
  * @returns {Promise<User>}
  */
 const getProductById = async (id) => {
-  let product = await Product.findById(id);
-  return product;
+  return Product.findById(id);
 };
 
 /**
@@ -15,7 +14,7 @@ const getProductById = async (id) => {
  * @returns {Promise<List<Products>>}
  */
 const getProducts = async () => {
-  return await Product.find({});
+  return Product.find({});
 };
 
 module.exports = {

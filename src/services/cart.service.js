@@ -1,9 +1,7 @@
 const httpStatus = require("http-status");
-const { Cart, Product } = require("../models");
+const { Cart, Product, User } = require("../models");
 const ApiError = require("../utils/ApiError");
 const config = require("../config/config");
-
-// TODO: CRIO_TASK_MODULE_CART - Implement the Cart service methods
 
 /**
  * Fetches cart for a user
@@ -86,7 +84,7 @@ const addProductToCart = async (user, productId, quantity) => {
 
     // Add product to cart
     cart.cartItems.push({ product, quantity });
-     await cart.save();
+    await cart.save();
 
     return cart;
   } catch (error) {
@@ -148,6 +146,7 @@ const updateProductInCart = async (user, productId, quantity) => {
 
     // Update the product's quantity in user's cart
     cart.cartItems[productIndex].quantity = quantity;
+
     await cart.save();
 
     return cart;
@@ -177,21 +176,16 @@ const updateProductInCart = async (user, productId, quantity) => {
  * @throws {ApiError}
  */
 const deleteProductFromCart = async (user, productId) => {
-  // console.log("user:", user);
-  // console.log("productId:", productId);
   try {
     // Get user's cart object
     let cart = await Cart.findOne({ email: user.email });
-    // console.log("cart:", cart);
     if (!cart)
       throw new ApiError(httpStatus.BAD_REQUEST, "User does not have a cart");
 
-    // console.log("cart.cartItems:", cart.cartItems);
     // Check if product is already in the cart
     const productIndex = cart.cartItems.findIndex(
       (item) => item.product._id.toString() === productId
     );
-    // console.log("productIndex", productIndex);
     if (productIndex == -1)
       throw new ApiError(httpStatus.BAD_REQUEST, "Product not in cart");
 
@@ -206,9 +200,62 @@ const deleteProductFromCart = async (user, productId) => {
   }
 };
 
+// TODO: CRIO_TASK_MODULE_TEST - Implement checkout function
+/**
+ * Checkout a users cart.
+ * On success, users cart must have no products.
+ *
+ * @param {User} user
+ * @returns {Promise}
+ * @throws {ApiError} when cart is invalid
+ */
+const checkout = async (user) => {
+  try {
+    // should throw 404 error if cart is not present
+    let cart = await Cart.findOne({ email: user.email });
+    if (!cart)
+      throw new ApiError(httpStatus.NOT_FOUND, "User does not have a cart");
+
+    // should throw 400 error if user's cart doesn't have any product
+    if (cart.cartItems.length == 0)
+      throw new ApiError(httpStatus.BAD_REQUEST, "Product not in cart");
+
+    //  should throw 400 error if address is not set
+    if (!await user.hasSetNonDefaultAddress()) {
+      throw new ApiError(
+        httpStatus.BAD_REQUEST,
+        "User does not have an address"
+      );
+    }
+
+    // should throw 400 error if wallet balance is insufficient
+    const totalPrice = cart.cartItems.reduce(
+      (acc, curr) => curr.product.cost * curr.quantity + acc,
+      0
+    );
+    if (totalPrice > user.walletMoney)
+      throw new ApiError(
+        httpStatus.BAD_REQUEST,
+        "User wallet balance is insufficient"
+      );
+
+    // should update user balance and empty the cart on success
+    user.walletMoney -= totalPrice;
+    await user.save();
+    cart.cartItems = [];
+    await cart.save();
+  } catch (error) {
+    throw new ApiError(
+      error.statusCode || httpStatus.INTERNAL_SERVER_ERROR,
+      error.message || httpStatus[500]
+    );
+  }
+};
+
 module.exports = {
   getCartByUser,
   addProductToCart,
   updateProductInCart,
   deleteProductFromCart,
+  checkout,
 };
