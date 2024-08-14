@@ -5,6 +5,13 @@ const { createUser } = require("./services/user.service");
 
 let server;
 
+// Enable Mongoose debugging to log all queries
+// mongoose.set('debug',function(collectionName, methodName, ...methodArgs) {
+//   console.log('collectionName:', collectionName)
+//   console.log('methodName:', methodName)
+//   console.log('methodArgs:', methodArgs)
+// });
+
 // TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Create Mongo connection and get the express app to listen on config.port
 mongoose.connect(config.mongoose.url, config.mongoose.options, () => {
   console.log("Successfully connected to MongoDB");
