@@ -27,14 +27,20 @@ app.use(compression());
 app.use(cors());
 app.options("*", cors());
 
-passport.use(jwtStrategy)
+passport.use(jwtStrategy);
 
 // Reroute all API request starting with "/v1" route
-app.use("/v1", routes);
+app.use(
+  "/v1",
+  (req, res, next) => {
+    console.log(req.url);
+  },
+  routes
+);
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
-    next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
+  next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
 });
 
 app.use(errorHandler);

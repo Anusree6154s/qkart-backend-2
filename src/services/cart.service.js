@@ -1,7 +1,8 @@
 const httpStatus = require("http-status");
-const { Cart, Product, User } = require("../models");
+const { Cart, Product } = require("../models");
 const ApiError = require("../utils/ApiError");
 const config = require("../config/config");
+
 
 /**
  * Fetches cart for a user

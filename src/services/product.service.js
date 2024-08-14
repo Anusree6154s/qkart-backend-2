@@ -14,6 +14,7 @@ const getProductById = async (id) => {
  * @returns {Promise<List<Products>>}
  */
 const getProducts = async () => {
+  console.log('hi')
   return Product.find({});
 };
 
