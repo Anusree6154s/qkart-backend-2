@@ -88,11 +88,11 @@ QKart is an E-commerce application offering a variety of products for customers 
 
 #### Scope of Work:
 - Set up a **MongoDB Atlas** instance and uploaded product data to the cloud database.
-- Deployed the QKart **Node.js backend** to **Heroku** for hosting.
+- Deployed the QKart **Node.js backend** to **Render** for hosting.
 - Deployed the QKart **React frontend** to **Netlify** and configured it to interact with the deployed Node.js backend.
 
 #### Skills Used:
 - MongoDB Atlas
 - Cloud Deployment
-- Heroku
+- Render
 - Netlify
