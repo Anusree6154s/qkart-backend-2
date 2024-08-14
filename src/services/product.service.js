@@ -15,6 +15,7 @@ const getProductById = async (id) => {
  */
 const getProducts = async () => {
   let products = await Product.find()
+  console.log(products)
   return products;
 };
 

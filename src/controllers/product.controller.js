@@ -57,8 +57,9 @@ const getProductById = catchAsync(async (req, res) => {
  *
  */
 const getProducts = catchAsync(async (req, res) => {
+  console.log(req.url)
   const products = await productService.getProducts();
-  res.send(products);
+  res.status(httpStatus.OK).send(products);
 });
 
 module.exports = {
