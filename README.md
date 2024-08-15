@@ -1,4 +1,11 @@
-## QKart Backend
+> [!NOTE]
+> **Repo contents:** Has backend and frontend.<br>
+> **Purpose of repo:** To deploy backend for this module.<br>
+> **Tasks in module:** To implement backend.<br>
+
+# Module: QKart Backend
+## Overview of Module
+#### QKart
 
 QKart is an E-commerce application offering a variety of products for customers to choose from.
 
@@ -25,7 +32,7 @@ During the course of this project,
 - Backend (Render) - https://qkart-backend-2-jlz8.onrender.com/
 - Frontend (Netlify) - https://66bc45a6a3de7800084c5338--qkart-node-6154.netlify.app/
 
-## QKart Architecture and Key Milestones
+##  Milestones
 
 ### 1. **Set Up Application and Implement the First API**
 
