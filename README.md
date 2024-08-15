@@ -1,6 +1,6 @@
 > [!NOTE]
 > **Repo contents:** Has backend and frontend.<br>
-> **Purpose of repo:** To deploy backend for this module.<br>
+> **Purpose of repo:** To deploy frontend and backend for this module.<br>
 > **Tasks in module:** To implement backend.<br>
 
 # Module: QKart Backend
