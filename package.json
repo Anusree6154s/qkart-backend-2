@@ -6,7 +6,7 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "npm run docs && node src/index.js",
+    "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "jest -i --watchAll",
     "docs": "npx @redocly/cli build-docs src/api-doc/swagger.json --output src/docs.html"
