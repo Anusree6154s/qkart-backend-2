@@ -8,6 +8,10 @@
             "name": "Email",
             "email": "anilkumaranusree113@gmail.com",
             "url": "https://github.com/Anusree6154s/qkart-backend-2"
+        },
+        "x-logo":{
+            "url":"https://github.com/Anusree6154s/qkart-backend-2/edit/main/src/api-doc/logo.png",
+            "altText": "qkart logo"
         }
     },
     "servers": [
