@@ -8,14 +8,12 @@ const ApiError = require("./utils/ApiError");
 const { jwtStrategy } = require("./config/passport");
 const helmet = require("helmet");
 const passport = require("passport");
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./api-doc/swagger.json')
-const path = require('path')
+
 
 const app = express();
 
 // set security HTTP headers - https://helmetjs.github.io/
-app.use( helmet());
+app.use(helmet());
 
 // parse json request body
 app.use(express.json());
@@ -32,9 +30,6 @@ app.options("*", cors());
 
 passport.use(jwtStrategy)
 
-// Reroute all API request starting with "/v1" route
-app.use("/v1", routes);
-
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     // Set Content Security Policy for running redocly via cdn
@@ -42,24 +37,11 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/swagger.json', (req, res) => {
-    console.log('swagger called')
-    res.sendFile(path.join(__dirname, '/api-doc/swagger.json'));
-});
+// Reroute all API request starting with "/v1" route
+app.use("/v1", routes);
 
-app.use('/docs', (req, res) => {
-    console.log('docs called')
-    res.sendFile(path.join(__dirname, 'html-docs.html'));
-});
 
-app.use('/logo', (req, res) => {
-    console.log('logo called')
-    res.sendFile(path.join(__dirname, '/api-doc/logo.png'));
-});
 
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(null, {
-//   swaggerUrl: '/swagger.json' // Use the swagger.json file
-// }));
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {

@@ -9,7 +9,8 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "jest -i --watchAll",
-    "docs": "npx @redocly/cli build-docs src/api-doc/swagger.json --output src/docs.html"
+    "docs": "npx @redocly/cli build-docs src/api-doc/swagger.json --output src/docs.html",
+    "commit":"commitizen-cli"
   },
   "dependencies": {
     "@babel/core": "^7.17.10",

@@ -1,4 +1,11 @@
-{
+require('dotenv').config()
+
+const url_dev = `http://localhost:${process.env.PORT}`
+const url_prod = `http://qkart-backend-2-jlz8.onrender.com`
+
+const curr_url = url_prod
+
+exports.spec = {
     "openapi": "3.0.0",
     "info": {
         "title": "QKart Backend API",
@@ -9,14 +16,14 @@
             "email": "anilkumaranusree113@gmail.com",
             "url": "https://github.com/Anusree6154s/qkart-backend-2"
         },
-        "x-logo":{
-            "url":"http://qkart-backend-2-jlz8.onrender.com/logo",
+        "x-logo": {
+            "url": `${curr_url}/v1/swagger/logo`,
             "altText": "qkart logo"
         }
     },
     "servers": [
         {
-            "url": "http://qkart-backend-2-jlz8.onrender.com/v1"
+            "url": `${curr_url}/v1`
         }
     ],
     "tags": [
