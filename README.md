@@ -1,6 +1,21 @@
 # Crio Module: QKart Backend
 
+
+<p align="center"> 
+ <img width="800" alt="qkart-backend-2-demo-gif" src="https://github.com/user-attachments/assets/f945686a-d945-462a-ad90-87985d19f40b">
+</p>
+
+<p align="center"> 
+<strong>Deployment URLs</strong><br>
+  <a href="https://qkart-backend-2-jlz8.onrender.com/v1">QKart Backend (Render)</a><br>
+  <a href=https://66bc45a6a3de7800084c5338--qkart-node-6154.netlify.app/">QKart Frontend (Netlify)</a><br>
+  <a href="https://qkart-backend-2-jlz8.onrender.com/v1/swagger/docs">QKart Backend API Doc</a>
+</p>
+
+
 ## Description
+
+
 
 - **Problem**: E-commerce applications need robust and secure backends for user management and product transactions.
 - **Solution**: Developed a comprehensive set of **REST APIs** for the QKart e-commerce application.
@@ -59,11 +74,11 @@
 
    Access the API at `http://localhost:YOUR_PORT/v1`.
 
-## Deployment URL
+<!-- ## Deployment URL
 
 - **Backend (Render)**: [QKart Backend](https://qkart-backend-2-jlz8.onrender.com/v1)
 - **Frontend (Netlify)**: [QKart Frontend](https://66bc45a6a3de7800084c5338--qkart-node-6154.netlify.app/)
-- **API Docs**: [QKart Backend API](https://qkart-backend-2-jlz8.onrender.com/v1/swagger/docs)
+- **API Docs**: [QKart Backend API](https://qkart-backend-2-jlz8.onrender.com/v1/swagger/docs) -->
 
 ## Demo
 
@@ -73,12 +88,10 @@
  <img width="800" alt="qkart-backend-2-demo" src="https://github.com/user-attachments/assets/94bc465b-5ff8-4e73-8ce3-2b6c2d105f97">
  </p>
 </p>
-<br>
-<br>
 
-- Preview of all routes in API Docs
+<!-- - Preview of all routes in API Docs
   
 <p align="center"> 
  <img width="800" alt="qkart-backend-2-demo-gif" src="https://github.com/user-attachments/assets/f945686a-d945-462a-ad90-87985d19f40b">
- </p>
+ </p> -->
 
