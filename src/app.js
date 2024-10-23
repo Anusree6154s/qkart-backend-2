@@ -36,6 +36,7 @@ passport.use(jwtStrategy)
 app.use("/v1", routes);
 
 app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     // Set Content Security Policy for running redocly via cdn
     res.header("Content-Security-Policy", " script-src-elem 'self' https://cdn.redoc.ly;");
     next();
@@ -49,6 +50,11 @@ app.get('/swagger.json', (req, res) => {
 app.use('/docs', (req, res) => {
     console.log('docs called')
     res.sendFile(path.join(__dirname, 'html-docs.html'));
+});
+
+app.use('/logo', (req, res) => {
+    console.log('logo called')
+    res.sendFile(path.join(__dirname, '/api-doc/logo.png'));
 });
 
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(null, {
