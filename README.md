@@ -190,5 +190,5 @@ qkart-backend/
 - [ ] Enhanced error handling and logging mechanisms.
 
 <p align="center"> 
- <img width="0" id="image" alt="qkart-backend-2-demo-gif" src="https://private-user-images.githubusercontent.com/81925799/379320477-94bc465b-5ff8-4e73-8ce3-2b6c2d105f97.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjk3NjE0MTcsIm5iZiI6MTcyOTc2MTExNywicGF0aCI6Ii84MTkyNTc5OS8zNzkzMjA0NzctOTRiYzQ2NWItNWZmOC00ZTczLThjZTMtMmI2YzJkMTA1Zjk3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEwMjQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMDI0VDA5MTE1N1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ3NzM5MTBiMmQ3MzFmNzA4M2YyZTFkYzUxMzBiMTAzNDczYzQzYzg3MzNiM2FjYjM1ZWYwZTliMzI1MTEwNWImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.fEBiI7zZKUpbfpgCL3ksZSsr8fFw2ZojElhFNV8ukb0" >
+ <img width="0" id="image" alt="qkart-backend-2-demo-gif" src="https://github.com/user-attachments/assets/68b07401-b2e6-4ebe-b2bc-ad1ce996c957" >
 </p>
