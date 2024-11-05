@@ -61,6 +61,7 @@ describe("Cart test", () => {
 
       mockingoose(Cart).toReturn(cartWithProductsUserTwo, "findOne");
 
+      // create a mock function for User model's hasSetNonDefaultAddress() instance method
       const hasSetNonDefaultAddressMock = jest.fn();
       userTwo.hasSetNonDefaultAddress =
         hasSetNonDefaultAddressMock.mockReturnValue(false);

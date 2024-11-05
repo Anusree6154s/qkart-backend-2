@@ -38,6 +38,8 @@ module.exports = {
       useCreateIndex: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 10000, // Timeout for server selection
+      socketTimeoutMS: 45000, // Timeout for operations
     },
   },
   default_wallet_money: DEFAULT_WALLET_MONEY,

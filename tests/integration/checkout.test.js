@@ -33,6 +33,7 @@ describe("Cart routes", () => {
       // Log response text to terminal
       console.log(res.text);
 
+      // TODO: CRIO_TASK_MODULE_TEST - Assert if status code is "401 UNAUTHORIZED"
       expect(res.statusCode).toEqual(httpStatus.UNAUTHORIZED);
     });
 
@@ -48,6 +49,7 @@ describe("Cart routes", () => {
         .set("Authorization", `Bearer ${userOneAccessToken}`)
         .send();
 
+      // TODO: CRIO_TASK_MODULE_TEST - Assert if status code is "400 BAD REQUEST"
       expect(res.statusCode).toEqual(httpStatus.BAD_REQUEST);
     });
 
@@ -62,6 +64,7 @@ describe("Cart routes", () => {
         .set("Authorization", `Bearer ${userTwoAccessToken}`)
         .send();
 
+      // TODO: CRIO_TASK_MODULE_TEST - Assert if status code is 400
       expect(res.statusCode).toEqual(httpStatus.BAD_REQUEST);
     });
 
@@ -75,6 +78,7 @@ describe("Cart routes", () => {
         .set("Authorization", `Bearer ${userOneAccessToken}`)
         .send();
 
+      // TODO: CRIO_TASK_MODULE_TEST - Assert if status code is 400
       expect(res.statusCode).toEqual(httpStatus.BAD_REQUEST);
     });
 
@@ -87,8 +91,10 @@ describe("Cart routes", () => {
         .set("Authorization", `Bearer ${userOneAccessToken}`)
         .send();
 
+      // TODO: CRIO_TASK_MODULE_TEST - Assert if status code is 204
       expect(res.statusCode).toEqual(httpStatus.NO_CONTENT);
 
+      // TODO: CRIO_TASK_MODULE_TEST - Get the cart for "userOne" and assert if
       // - Cart exists
       // - Length of "cartItems" array is 0
       const cart = await Cart.findOne({ email: userOne.email });

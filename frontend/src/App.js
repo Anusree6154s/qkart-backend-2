@@ -12,13 +12,21 @@ import Search from "./components/Search";
 
 import Thanks from "./components/Thanks";
 
+<<<<<<< HEAD
 // import ipConfig from "./ipConfig.json";
+=======
+import ipConfig from "./ipConfig.json";
+>>>>>>> backend
 
 export const config = {
   endpoint: `https://qkart-backend-2-jlz8.onrender.com/v1`,
   // endpoint: `http://${ipConfig.workspaceIp}:8082/v1`,
 };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> backend
 export default function App(props) {
   const location = useLocation();
   // Scroll to top if path changes
