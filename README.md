@@ -184,10 +184,10 @@ qkart-backend/
 
 ### Potential Improvements
 
-- [ ] Wishlist functionality for users.
-- [ ] User reviews and ratings for products.
-- [ ] Admin dashboard for managing products and users.
-- [ ] Enhanced error handling and logging mechanisms.
+- Wishlist functionality for users.
+- User reviews and ratings for products.
+- Admin dashboard for managing products and users.
+- Enhanced error handling and logging mechanisms.
 
 <p align="center"> 
  <img width="0" id="image" alt="qkart-backend-2-demo-gif" src="https://github.com/user-attachments/assets/68b07401-b2e6-4ebe-b2bc-ad1ce996c957" >
